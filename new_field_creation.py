@@ -1,9 +1,9 @@
-def new_field_creation(field_size: int):
+def new_field_creation(field_size: int) -> list:
     """
     Функция создает пустое игровое поле размера field_size.
     На входе получает значение размера поля и выводит "двумерный массив" для отображения поля функцией draw_field
-    :param field_size:
-    :return:
+    :param field_size: размер поля
+    :return: двумерный массив размера field_size, заполненный нулями
     """
     new_field = []
     range_size = range(field_size)

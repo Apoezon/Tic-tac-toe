@@ -1,5 +1,10 @@
 
-def matrix_trans(a:list):
+def matrix_trans(a:list) -> list:
+    """
+    фукция транспонирует матрцу (двумерный массив), где элементы строки становятся элементами столбца, а столбца - строки
+    :param a: двумерный массив
+    :return: транспонированый
+    """
     # создаем новую матрицу
     b = range(len(a))
     c = range(len(a[0]))
@@ -18,8 +23,8 @@ def matrix_trans(a:list):
 def make_diags(a:list):
     """
     Функция помещает две диагонали поля в лист для проверки фукнцией check_row()
-    :param a:
-    :return:
+    :param a: двумерный массив
+    :return: лист двух листов, каждый из которых содержит диагонали
     """
     a_diag = [[],[]]
     b = range(len(a))
@@ -32,8 +37,8 @@ def make_diags(a:list):
 def check_row(a:list):
     """
     Фукция проверяет горизонтальные элементы поля на предмет
-    :param a:
-    :return:
+    :param a: двумерный массив в виде листа листов
+    :return: None - нет победиля; 0 - ничья; 1 - победил первый игрок; 2 - победил второй игрок
     """
     for i in a:
         # print(f" Set(i) = {set(i)}")
@@ -48,17 +53,32 @@ def check_row(a:list):
     return winner
 
 def check_column(a:list):
-  b = matrix_trans(a)
-  winner = check_row(b)
-  return winner
+    """
+    Функция проверяет столбец на заполнение всех ячеек
+    :param a: двумерный массив в виде листо листов
+    :return: None - нет победиля; 0 - ничья; 1 - победил первый игрок; 2 - победил второй игрок
+    """
+    b = matrix_trans(a)
+    winner = check_row(b)
+    return winner
 
 def check_diagonal(a:list):
-  winner = 0
-  b = make_diags(a)
-  winner = check_row(b)
-  return winner
+    """
+    Функция проверяет диагональ на заполнение всех ячеек
+    :param a: двумерный массив в виде листо листов
+    :return: None - нет победиля; 0 - ничья; 1 - победил первый игрок; 2 - победил второй игрок
+    """
+    winner = 0
+    b = make_diags(a)
+    winner = check_row(b)
+    return winner
 
 def who_win(a:list):
+    """
+    Функция возвращает
+    :param a:
+    :return:
+    """
     # print('Получили матрицу на вход who-win', a, sep="\n")
     winner = check_row(a)
     # print('checked_row(a)', a, sep="\n")
