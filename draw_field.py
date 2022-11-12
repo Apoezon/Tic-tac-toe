@@ -24,6 +24,8 @@ def draw_field(field: list) -> None:
     :param field:
     :return:
     """
+    print('\033[2J\033[H', end='')
+
     field_size = len(field)
     range_size = range(field_size)
     # print(f"Размер поля равен {field_size}")
